@@ -1,71 +1,76 @@
 'use strict'
 
-// PSEUDOCODE
-// Take open text prompts from the form
-    //send the prompts to the API (**LATER)
+import {TOKEN} from './key.js';
 
-//display the text prompts below in an ordered list 
-    //these should be sorted from newest to oldest (currently achieved through a flex: column-reverse - may need to check back on this one)
+// Calls Open AI API
+async function getResponse(prompt) {
+    const requestBody = {
+        prompt: prompt,
+        temperature: 0.5,
+        max_tokens: 64,
+        top_p: 1.0,
+        frequency_penalty: 0.0,
+        presence_penalty: 0.0,
+    };
 
-//each result should include the prompt 
-    //as well as the response from the API (**LATER)
+    const response = await fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${btoa(TOKEN)}`,
+        },  
+        body: JSON.stringify(requestBody),
+    });
+    return await response.json();
+}
 
-//querying the DOM for the form
+// Putting the prompt and response text together & package together for viewing on the page
+function generateResponseHTML(prompt, responseText) {
+
+    const promptAndResponse = `
+            <li class = "generatedPrompt">
+                <h3 class = "promptHeader">Prompt:</h3>
+                <p class = "promptParagraph">${prompt}</p>
+            </li>
+            <li class = "generatedResponse">
+                <h3>Response:</h3>
+                <p>${responseText}</p>
+            </li>
+        `;
+
+    // Creating the parent unordered list, adding the styled class, and adding the prompt and response information into it
+    const listItem = document.createElement('ul');
+    listItem.classList.add('promptAndResponse')
+    listItem.innerHTML = promptAndResponse;
+    responseList.appendChild(listItem);
+    //allows the new answer to be focusable
+}
+
+// Querying the DOM for the form
 const formElement = document.querySelector('form');
-console.log(formElement);
 
-//querying the DOM for the ordered list
+// Querying the DOM for the ordered list
 const responseList = document.querySelector('ol');
-console.log(responseList);
 
-// add a submit event listener on the form
+// Listen for textarea form submissions & follow-up with the generated Prompt & Response
 formElement.addEventListener('submit', function(event) {
     
     // stop the page from refreshing when the form is submitted 
     event.preventDefault();
-    console.log(event); //NOTE**: remove later when completed activity
 
-    //query the DOM for the textarea element - tells me if it's empty or not later 
+    //query the DOM for the textarea element
     const promptTextarea = document.getElementById('enterPrompt');
-    console.log(promptTextarea); //NOTE**: remove later when completed activity - just checking
 
-    //activity should only run if user has entered a prompt
+    // Follow-up activity should only run if user has entered a prompt & generate a Prompt & Response 
     if (promptTextarea.value !== '') {
-
         const prompt = promptTextarea.value;
-        console.log(prompt); //NOTE**: remove later when completed activity
+        getResponse(prompt).then(responseBody => {
+            generateResponseHTML(prompt, responseBody.choices[0].text)
+        });
 
-        const promptAndResponse = `
-                <li class = "generatedPrompt">
-                    <h3 class = "promptHeader">Prompt:</h3>
-                    <p class = "promptParagraph">${prompt}</p>
-                </li>
-                <li class = "generatedResponse">
-                    <h3>Response:</h3>
-                    <p></p>
-                </li>
-            `;
-        console.log(promptAndResponse); //NOTE**: remove later when completed activity
-
-        //creating the parent unordered list, adding the styled class, and adding the prompt and response information into it
-        const listItem = document.createElement('ul');
-        listItem.classList.add('promptAndResponse')
-        console.log(listItem);
-        listItem.innerHTML = promptAndResponse;
-        console.log(listItem);
-
-        //adding the entire prompt and response into the parent ordered list (queried at the beginning of the JS doc)
-        responseList.appendChild(listItem);
-
-        //clear the textarea after submitted
+        // Clear the textarea after submitted
         promptTextarea.value = '';
-
     } else {
         alert('Please enter a prompt!');
     }
-
-
-
-
-
 });
