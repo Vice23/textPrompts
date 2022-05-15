@@ -334,7 +334,7 @@ button:hover {
   background-color: lavenderblush;
   border-radius: 2%;
   padding: 3%;
-  margin: 5% auto;
+  margin: 5% 0;
 }
 
 ol {

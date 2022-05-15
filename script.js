@@ -20,7 +20,8 @@ console.log(responseList);
 
 // add a submit event listener on the form
 formElement.addEventListener('submit', function(event) {
-    // stop the page from refreshing when the form is submitted (it's looking to send the information to the server)
+    
+    // stop the page from refreshing when the form is submitted 
     event.preventDefault();
     console.log(event); //NOTE**: remove later when completed activity
 
@@ -46,12 +47,18 @@ formElement.addEventListener('submit', function(event) {
             `;
         console.log(promptAndResponse); //NOTE**: remove later when completed activity
 
+        //creating the parent unordered list, adding the styled class, and adding the prompt and response information into it
         const listItem = document.createElement('ul');
+        listItem.classList.add('promptAndResponse')
         console.log(listItem);
         listItem.innerHTML = promptAndResponse;
         console.log(listItem);
 
+        //adding the entire prompt and response into the parent ordered list (queried at the beginning of the JS doc)
         responseList.appendChild(listItem);
+
+        //clear the textarea after submitted
+        promptTextarea.value = '';
 
     } else {
         alert('Please enter a prompt!');
