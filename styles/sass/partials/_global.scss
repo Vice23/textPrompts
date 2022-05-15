@@ -44,11 +44,17 @@ html {
     width: 80%;
 }
 
-h1, h2, h3, label {
+h1, h2, label {
     @include coustardHeading;
 }
 
-h4, h5, h6 {
+h3, h4, h5, h6 {
     @include monteserratHeavy;
 }
 
+//removeing default list styling
+ul, ol {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}

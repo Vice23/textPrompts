@@ -278,15 +278,21 @@ html {
   width: 80%;
 }
 
-h1, h2, h3, label {
+h1, h2, label {
   font-family: "Coustard", serif;
   margin-top: 5%;
   margin-bottom: 2%;
 }
 
-h4, h5, h6 {
+h3, h4, h5, h6 {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
+}
+
+ul, ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 .mainForm {
@@ -316,4 +322,29 @@ button {
   margin-top: 2%;
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
+  background-color: rebeccapurple;
+  color: lavenderblush;
+  border-radius: 50%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  border: none;
+}
+
+button:hover {
+  background-color: darkorchid;
+  color: white;
+}
+
+.promptAndResponse {
+  background-color: lavenderblush;
+  border-radius: 2%;
+  padding: 3%;
+  margin: 5% auto;
+}
+
+@media (max-width: 460px) {
+  button {
+    width: 100%;
+    padding: 5% 8%;
+  }
 }

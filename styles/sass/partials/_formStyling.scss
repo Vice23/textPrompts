@@ -21,5 +21,16 @@ button {
     padding: 2% 8%;
     margin-top: 2%; 
     @include monteserratHeavy;
+    background-color: rebeccapurple;
+    color: white
+    border-radius: 50%;
+    transition: 0.2s;
+    border: none;
 }
+
+button:hover {
+    background-color: darkorchid;
+}
+
+
 
