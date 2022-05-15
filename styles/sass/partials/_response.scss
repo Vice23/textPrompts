@@ -6,3 +6,9 @@
     padding: 3%;
     margin: 5% auto;
 }
+
+//making the results appear newest to oldest
+ol {
+    display: flex;
+    flex-direction: column-reverse;
+}

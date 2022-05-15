@@ -1,8 +1,5 @@
 
 
-.mainForm {
-    width: 100%;
-}
 
 form {
     display: flex;
@@ -22,7 +19,7 @@ button {
     margin-top: 2%; 
     @include monteserratHeavy;
     background-color: rebeccapurple;
-    color: white
+    color: white;
     border-radius: 50%;
     transition: 0.2s;
     border: none;
