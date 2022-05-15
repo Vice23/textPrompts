@@ -1,4 +1,33 @@
-@import url('https://fonts.googleapis.com/css2?family=Coustard&family=Montserrat:wght@100;500&display=swap');
+
+/* ==================
+TYPOGRAPHY & SIMPLE VARIBLES, MIXINS
+================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Coustard&family=Montserrat:wght@300;500&display=swap');
+
+
+//typography variables
+$headingFont: 'Coustard',
+serif;
+
+$bodyFont: 'Montserrat',
+sans-serif;
+
+@mixin coustardHeading {
+    font-family: 'Coustard', serif;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+
+@mixin monteserratHeavy {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+}
+
+@mixin monteserratBody {
+    font-family: $bodyFont;
+    font-weight: 300;
+}
 
 /* ==================
 GLOBAL STYLING
@@ -6,15 +35,20 @@ GLOBAL STYLING
 
 
 html {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 100;
+    @include monteserratBody;
 }
 
-h1, h2, h3 {
-    font-family: 'Coustard', serif;
+.wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 80%;
+}
+
+h1, h2, h3, label {
+    @include coustardHeading;
 }
 
 h4, h5, h6 {
-font-family: 'Montserrat', sans-serif;
-font-weight: 500;
+    @include monteserratHeavy;
 }
+
