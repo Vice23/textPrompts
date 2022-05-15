@@ -5,7 +5,7 @@
     //send the prompts to the API (**LATER)
 
 //display the text prompts below in an ordered list 
-    //these should be sorted from newest to oldest (currently achieved through a flex: column-reverse (may need to check back on this one)
+    //these should be sorted from newest to oldest (currently achieved through a flex: column-reverse - may need to check back on this one)
 
 //each result should include the prompt 
     //as well as the response from the API (**LATER)
