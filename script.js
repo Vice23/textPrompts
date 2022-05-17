@@ -17,7 +17,7 @@ async function getResponse(prompt) {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${btoa(TOKEN)}`,
+            Authorization: `Bearer ${atob(TOKEN)}`,
         },  
         body: JSON.stringify(requestBody),
     });
