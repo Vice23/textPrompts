@@ -5,6 +5,22 @@
     border-radius: 2%;
     padding: 3%;
     margin: 5% 0;
+    
+    //adding desktop styling for response
+    li {
+        display:flex;
+
+        h3 {
+            align-self: flex-start;
+            min-width: 20%;
+        }
+
+        p {
+            align-self: flex-end;
+        }
+
+    }
+
 }
 
 //making the results appear newest to oldest

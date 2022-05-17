@@ -336,6 +336,20 @@ button:hover {
   padding: 3%;
   margin: 5% 0;
 }
+.promptAndResponse li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.promptAndResponse li h3 {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  min-width: 20%;
+}
+.promptAndResponse li p {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
 
 ol {
   display: -webkit-box;
@@ -347,6 +361,12 @@ ol {
           flex-direction: column-reverse;
 }
 
+@media (max-width: 745px) {
+  .promptAndResponse li {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
 @media (max-width: 460px) {
   button {
     width: 100%;

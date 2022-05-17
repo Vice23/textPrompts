@@ -1,4 +1,10 @@
 
+@media (max-width: 745px) {
+    .promptAndResponse li {
+        flex-wrap: wrap;
+    }
+}
+
 @media (max-width: 460px) {
     button {
         width: 100%;
