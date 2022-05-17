@@ -1,6 +1,6 @@
 'use strict'
 
-import { TOKEN } from './config.js';
+import { TOKEN } from 'config.js';
 
 // Calls Open AI API
 async function getResponse(prompt) {
