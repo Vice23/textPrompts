@@ -46,26 +46,20 @@ function generateResponseHTML(prompt, responseText) {
     //allows the new answer to be focusable
 }
 
-// Querying the DOM for the form
+// Querying the DOM for the form & ordered list
 const formElement = document.querySelector('form');
-
-// Querying the DOM for the ordered list
 const responseList = document.querySelector('ol');
 
-// Listen for textarea form submissions & follow-up with the generated Prompt & Response
+// Listen for textarea & engine selection form submissions & follow-up with the generated Prompt & Response
 formElement.addEventListener('submit', function(event) {
     
-    // stop the page from refreshing when the form is submitted 
     event.preventDefault();
 
-    //query the DOM for the engine choice
     const engineSelect = document.getElementById('chooseEngine');
-
-    //query the DOM for the textarea element
     const promptTextarea = document.getElementById('enterPrompt');
 
 
-    // Follow-up activity should only run if user has entered a prompt & generate a Prompt & Response 
+    // Follow-up activity should only run if user has entered a prompt & generate a Prompt & Response with the selected engine 
     if (promptTextarea.value !== '') {
         const prompt = promptTextarea.value;
         getResponse(prompt, engineSelect.value).then(responseBody => {

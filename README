@@ -1,0 +1,10 @@
+#  Moriah's Shopify Frontend Developer Intern Challenge
+
+## What it is
+
+This is a responsive and accessible app that sends plain text prompts to the OpenAI API and displays the results in a list. The user has the choice between three engines in a dropdown before entering the prompt. Each result includes the original prompt the user entered and the response from the API. Responses are displayed in order of newest to oldest.
+
+
+## Components
+
+This app is made with HTML, CSS, SASS, and JavaScript.

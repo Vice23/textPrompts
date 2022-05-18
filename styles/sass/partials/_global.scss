@@ -52,11 +52,14 @@ h3, h4, h5, h6 {
     @include monteserratHeavy;
 }
 
-//removeing default list styling
+//removing default list styling
 ul, ol {
     list-style-type: none;
     margin: 0;
     padding: 0;
 }
 
+footer {
+    text-align: center;
+}
 

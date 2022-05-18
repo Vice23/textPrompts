@@ -295,6 +295,10 @@ ul, ol {
   padding: 0;
 }
 
+footer {
+  text-align: center;
+}
+
 form {
   display: -webkit-box;
   display: -ms-flexbox;
