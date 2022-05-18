@@ -3,7 +3,8 @@
 import TOKEN from './config.js';
 
 // Calls Open AI API
-async function getResponse(prompt) {
+async function getResponse(prompt, engine) {
+    console.log(prompt, engine);
     const requestBody = {
         prompt: prompt,
         temperature: 0.5,
@@ -13,7 +14,7 @@ async function getResponse(prompt) {
         presence_penalty: 0.0,
     };
 
-    const response = await fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
+    const response = await fetch("https://api.openai.com/v1/engines/" + engine + "/completions", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -58,13 +59,18 @@ formElement.addEventListener('submit', function(event) {
     // stop the page from refreshing when the form is submitted 
     event.preventDefault();
 
+    //query the DOM for the engine choice
+    const engineSelect = document.getElementById('chooseEngine');
+    console.log(engineSelect.selectedIndex);
+
     //query the DOM for the textarea element
     const promptTextarea = document.getElementById('enterPrompt');
+
 
     // Follow-up activity should only run if user has entered a prompt & generate a Prompt & Response 
     if (promptTextarea.value !== '') {
         const prompt = promptTextarea.value;
-        getResponse(prompt).then(responseBody => {
+        getResponse(prompt, engineSelect.value).then(responseBody => {
             generateResponseHTML(prompt, responseBody.choices[0].text)
         });
 

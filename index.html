@@ -17,6 +17,14 @@
         <main>
             <section class="mainForm">
                 <form>
+                    <label for="chooseEngine">Choose Your Response Engine</label>
+                    <select name="chooseEngine" id="chooseEngine">
+                        <option value="text-curie-001">Curie</option>
+                        <option value="text-ada-001">Ada</option>
+                        <option value="text-babbage-001">Babbage</option>
+                    </select>
+
+
                     <label for="enterPrompt">Enter Prompt</label>
                     <textarea id="enterPrompt" name = "enterPrompt" cols="10"  rows="10"
                     placeholder="Enter Prompt"></textarea>
@@ -57,7 +65,7 @@
         </footer>
     </div>
 
-    <script src="./script.js" type="module"></script>
+    <script src="./script.js" type = "module"></script>
 </body>
 
 </html>

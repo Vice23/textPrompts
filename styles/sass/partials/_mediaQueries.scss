@@ -1,8 +1,14 @@
 
 @media (max-width: 745px) {
     .promptAndResponse li {
-        flex-wrap: wrap;
+        flex-direction: column;
+
+        p {
+                align-self: flex-start;
+            }
     }
+
+    
 }
 
 @media (max-width: 460px) {

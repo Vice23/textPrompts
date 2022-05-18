@@ -305,6 +305,10 @@ form {
           flex-direction: column;
   width: 100%;
 }
+form select {
+  font-family: inherit;
+  background-color: lavenderblush;
+}
 
 textarea {
   font-family: "Montserrat", sans-serif;
@@ -363,8 +367,14 @@ ol {
 
 @media (max-width: 745px) {
   .promptAndResponse li {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .promptAndResponse li p {
+    -ms-flex-item-align: start;
+        align-self: flex-start;
   }
 }
 @media (max-width: 460px) {
