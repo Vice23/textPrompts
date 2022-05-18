@@ -367,6 +367,7 @@ ol {
   -webkit-box-direction: reverse;
       -ms-flex-direction: column-reverse;
           flex-direction: column-reverse;
+  min-height: 40vh;
 }
 
 @media (max-width: 745px) {
