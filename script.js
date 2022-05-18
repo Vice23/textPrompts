@@ -4,7 +4,6 @@ import TOKEN from './config.js';
 
 // Calls Open AI API
 async function getResponse(prompt, engine) {
-    console.log(prompt, engine);
     const requestBody = {
         prompt: prompt,
         temperature: 0.5,
@@ -61,7 +60,6 @@ formElement.addEventListener('submit', function(event) {
 
     //query the DOM for the engine choice
     const engineSelect = document.getElementById('chooseEngine');
-    console.log(engineSelect.selectedIndex);
 
     //query the DOM for the textarea element
     const promptTextarea = document.getElementById('enterPrompt');
